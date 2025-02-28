@@ -29,3 +29,13 @@ You can work in the container terminal to do multiple steps.
 ```sh
 docker run --rm -it -v ./models:/home/openvino/models omz
 ```
+
+### Reference
+- [OpenVINO Open Model Zoo (OMZ)](https://github.com/openvinotoolkit/open_model_zoo)
+- List of available models at OMZ
+    - [Intel pre-trained models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/index.md)
+    - [Public pre-trained models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/index.md)
+- [OMZ downloader tools](https://github.com/openvinotoolkit/open_model_zoo/blob/master/tools/model_tools/README.md)
+
+You can use NNCF to compress/quantize the DL models.
+- [Intel Neural Network Compression Framework (NNCF)](https://github.com/openvinotoolkit/nncf)
