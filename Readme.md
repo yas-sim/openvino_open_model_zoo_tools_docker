@@ -6,6 +6,7 @@ This project provides a Dockerfile to build a Docker image to run Intel's Open M
 ```sh
 cd Docker
 docker build -t omz:2024.6.0 .
+docker tag omz:2024.6.0 omz:latest
 makdir -p models
 # To make the Docker container user (openvino) is able to write the files in the directory
 chmod 777 models
