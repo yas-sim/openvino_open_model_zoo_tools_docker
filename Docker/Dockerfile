@@ -1,4 +1,4 @@
-FROM openvino/ubuntu24_dev:2025.0.0
+FROM openvino/ubuntu24_dev:2024.6.0
 
 WORKDIR /home/openvino
 
