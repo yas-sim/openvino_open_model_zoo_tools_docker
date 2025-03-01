@@ -7,6 +7,7 @@ This project provides a Dockerfile to build a Docker image to run Intel's Open M
 cd Docker
 docker build -t omz:2024.6.0 .
 docker tag omz:2024.6.0 omz:latest
+cd ..
 makdir -p models
 # To make the Docker container user (openvino) is able to write the files in the directory
 chmod 777 models
@@ -19,17 +20,29 @@ docker run --rm -v ./models:/home/openvino/models omz omz_downloader --name yolo
 docker run --rm -v ./models:/home/openvino/models omz omz_converter --name yolo-v3-onnx --precisions FP16
 ```
 
+Windows users need to specify a full path for the model directory.
+```sh
+docker run --rm -v D:/<foo>/Docker/models:/home/openvino/models omz omz_downloader --name yolo-v3-onnx
+```
+
 ### Usage - Display the names of all supported models
 You can check which models are supported by the tool with following command.
 ```sh
 docker run --rm -v ./models:/home/openvino/models omz omz_downloader --print_all
 ```
 
-### Usage - Work in the container console.
+### Usage - Work in the container console
 You can work in the container terminal to do multiple steps.
 ```sh
 docker run --rm -it -v ./models:/home/openvino/models omz
 ```
+
+### Usage - Download and convert all available models
+```sh
+docker run --rm -v ./models:/home/openvino/models omz omz_downloader --all
+docker run --rm -v ./models:/home/openvino/models omz omz_converter --all --precisions FP16
+```
+
 
 ### Reference
 - [OpenVINO Open Model Zoo (OMZ)](https://github.com/openvinotoolkit/open_model_zoo)
